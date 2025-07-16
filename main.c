@@ -50,12 +50,14 @@ int main(void) {
     }
 
     while (keep_playing != 'N') {
-        
-        puts("Seja bem-vindo ao Jogo da Forca!\n");
 
         /* Pede para o usuário inserir um número de 1 a 100 para selecionar a palavra secreta */
         while (1) {
-            printf("Selecione um número de 1 a 100 par iniciar o jogo: ");
+            system("clear") /* Caso o usuário decida jogar novamente, limpa o console */
+            
+            puts("Seja bem-vindo ao Jogo da Forca!\n"); /* Dá boas vindas ao usuário */
+            
+            printf("Selecione um número de 1 a 100 par iniciar o jogo: "); /* Pede para o usuário selecionar um número */
             
             setbuf(stdin, NULL);
             fgets(word_line_number_buffer, sizeof(word_line_number_buffer), stdin);
