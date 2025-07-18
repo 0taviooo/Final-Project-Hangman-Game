@@ -1,4 +1,8 @@
 
+#define UTILS_H
+
+#ifdef UTILS_H
+
 /**
  * @brief Appends a character to the end of a string
  * 
@@ -10,14 +14,12 @@
  * 
  * @note This function modifies the original string in place.
  * 
- * @example
- * @code
- * char str[10] = "hello";
- * append(str, '!');  // str becomes "hello!"
- * @endcode
  */
 void append(char *s, char c) {
+    /* Função anexa um caractere no final de uma string */
     while (*s++);
     *(s - 1) = c;
     *s = '\0';
 }
+
+#endif
