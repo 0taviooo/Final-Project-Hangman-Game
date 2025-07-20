@@ -70,8 +70,17 @@ int main(void) {
             system("clear");
 
             /* Imprime o título do jogo */
-            puts("        _                         _         ______                  \n       | |                       | |       |  ____|                 \n       | | ___   __ _  ___     __| | __ _  | |__ ___  _ __ ___ __ _ \n   _   | |/ _ \\ / _` |/ _ \\   / _` |/ _` | |  __/ _ \\| '__/ __/ _` |\n  | |__| | (_) | (_| | (_) | | (_| | (_| | | | | (_) | | | (_| (_| |\n   \\____/ \\___/ \\__, |\\___/   \\__,_|\\__,_| |_|  \\___/|_|  \\___\\__,_|\n                 __/ |                                          \n                |___/                                               \n");
-
+            puts("----------------------------------------------------------------------------");
+            puts("                           Seja bem-vindo(a) ao...                          ");
+            puts("----------------------------------------------------------------------------");
+            puts(" ______         _                         _         ______                  ");
+            puts(" |    |        | |                       | |       |  ____|                 ");
+            puts(" |    O        | | ___   __ _  ___     __| | __ _  | |__ ___  _ __ ___ __ _ ");
+            puts(" |   /|\\   _   | |/ _ \\ / _` |/ _ \\   / _` |/ _` | |  __/ _ \\| '__/ __/ _` |");
+            puts(" |   / \\  | |__| | (_) | (_| | (_) | | (_| | (_| | | | | (_) | | | (_| (_| |");
+            puts(" |         \\____/ \\___/ \\__, |\\___/   \\__,_|\\__,_| |_|  \\___/|_|  \\___\\__,_|");
+            puts("                         __/ |                                          ");
+            puts("                        |___/                                               \n");
             /* Imprime na tela uma mensagem de erro caso o usuário tenha inserido um valor inválido */
             if (not_valid_word_line_number) puts(ANSI_COLOR_YELLOW "Valor inserido inválido. Tente novamente!" ANSI_COLOR_RESET);
 
@@ -177,7 +186,7 @@ int main(void) {
             input_letter = toupper(input_letter);
 
             /* Verifica se o caractere inserido é, de fato, uma letra */
-            if (!isalpha(input_letter)) {
+            if (!isalpha(input_letter) || input_letter > 127) {
                 /* Registra o erro e repete o laço */
                 is_not_letter_error = 1;
                 /* Corrige os outros erros para não imprimir na tela múltiplos erros */
@@ -223,6 +232,8 @@ int main(void) {
             printf("A palavra secreta era %s\n", noose.word);
         }
 
+        /* Variável auxiliar para a flag de controle de erro do laço seguinte */
+        int aux_not_valid_keep_playing_value = 0;
         /* Pede para o usuário inserir se deseja continuar no jogo, a partir de um caractere */
         while (1) {
             /* Imprime na tela uma mensagem de erro caso o usuário tenha inserido um valor inválido */
@@ -230,6 +241,14 @@ int main(void) {
                 /* Apaga a linha superior para melhorar a visibilidade */
                 printf("\x1b[1F"); /* Move o cursor para o começo da linha superior */
                 printf("\x1b[2K"); /* Limpa essa linha */
+                /* Condição para apagar uma linha adicional (a mensagem de erro anterior) para não gerar uma sequência de linhas */
+                if (aux_not_valid_keep_playing_value) {
+                    printf("\x1b[1F"); /* Move o cursor para o começo da linha superior */
+                    printf("\x1b[2K"); /* Limpa essa linha */
+                }
+                else {
+                    aux_not_valid_keep_playing_value = 1;
+                }
                 puts(ANSI_COLOR_YELLOW "Valor inserido inválido. Tente novamente!" ANSI_COLOR_RESET);
             }
             printf("Deseja continuar jogando (S/N)? ");
@@ -279,6 +298,9 @@ int main(void) {
         /* Adiciona uma quebra de linha para melhor visibilidade */
         putchar('\n');
     }
+
+    /* Mensagem final */
+    puts("Obrigado por jogar!\n");
 
     /* Fecha os arquivos lidos */
     fclose(words_file);
