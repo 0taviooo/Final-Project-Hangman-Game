@@ -1,11 +1,11 @@
 Caroço grande.
-Fruta tropical com coroa.
+Fruta tropical.
 Verdura usada em salada.
 Fruta roxa ou vermelha, pequena e doce.
-Objeto usado no dedo como adorno.
+Objeto usado no dedo.
 Fenômeno com sete cores.
 Conjunto de árvores.
-Profissão que vai ao espaço.
+Vai ao espaço.
 Meio de transporte aéreo.
 Maior animal do planeta.
 Instrumento para medir peso.
@@ -14,28 +14,28 @@ Instrumento de percussão.
 Lugar com muitos livros.
 Inseto com asas coloridas.
 Fecha roupas.
-Instrumento que aponta o norte.
+Utilizado para se localizar.
 Produz som nos carros.
 Objeto que tranca algo.
-Usado para escrever na escola.
+Usado para escrever.
 Roupa de algodão de uso diário.
 Réptil que muda de cor.
 Campo coberto de grama.
 Legume alaranjado.
-Construção medieval fortificada.
+Construção medieval.
 Queda natural de água.
 Animal de orelhas grandes.
 Fungo com chapéu.
 Máquina para processar dados.
-Órgão que bombeia sangue.
-Animal pré-histórico extinto.
+Bombeia sangue.
+Animal pré-histórico.
 Animal com tromba.
 Profissional da área da saúde.
 Salgado árabe.
 Serve para subir.
 Animal com ferrão.
 Pedra preciosa verde.
-Objeto que reflete imagens.
+Reflete imagens.
 Conjunto de ossos do corpo.
 Corpo celeste luminoso.
 Espírito de pessoa morta.
@@ -44,7 +44,7 @@ Conjunto de árvores densas.
 Veículo que vai ao espaço.
 Inseto trabalhador.
 Pequeno objeto que acende fogo.
-Recipiente usado para armazenar líquidos.
+Armazena líquidos.
 Massa de gelo que se move.
 Planta que segue o sol.
 Campo coberto de grama.
@@ -64,7 +64,7 @@ Aparelho que amplifica a voz.
 Dinheiro metálico.
 Elevação natural do terreno.
 Mamífero voador noturno.
-Grande embarcação marítima.
+Embarcação marítima.
 Casa de pássaros.
 Vapor d’água no céu.
 Grande corpo de água salgada.
@@ -73,7 +73,7 @@ Usado para melhorar a visão.
 Usada para cozinhar.
 Animal com penas e asas.
 Grão de milho estourado.
-Ave que não voa e vive no frio.
+Ave que não voa.
 Corpo celeste que orbita uma estrela.
 Indica as horas no relógio.
 Obra de arte em moldura.
@@ -81,7 +81,7 @@ Parte da planta que fica no solo.
 Indica as horas.
 Luz forte durante a tempestade.
 Vestuário em geral.
-Comida entre fatias de pão.
+2 fatias de pão com outros alimentos no meio.
 Protege os pés.
 Objeto que faz som metálico.
 Contração involuntária do diafragma.
@@ -93,8 +93,8 @@ Corta papel ou tecido.
 Usado para construir.
 Recipiente para líquidos ou comida.
 Felino listrado da Ásia.
-Suporte para a cabeça ao dormir.
+Almofada que se coloca à cabeceira da cama.
 Montanha que cospe lava.
-Instrumento de cordas com arco.
-Jogo de tabuleiro com reis.
-Animal listrado da savana.
+Instrumento de cordas.
+Jogo de tabuleiro.
+Animal da savana.
