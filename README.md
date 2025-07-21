@@ -1,6 +1,8 @@
 
 # Jogo da Forca
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 Divirta-se e tente não perder a cabeça!
 <h1 align="center">
 <img width="100%" alt="Hangman" src="https://github.com/0taviooo/Final-Project-Hangman-Game/blob/main/include/gfx/hangman.png?raw=true">
