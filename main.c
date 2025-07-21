@@ -47,6 +47,7 @@ int main(void) {
     int more_than_one_char_error = 0; /* Caso haja mais de 1 caractere */
     int is_not_letter_error = 0; /* Caso não seja uma letra */
     int already_used_letter_error = 0; /* Caso seja uma letra já utilizada */
+    int wrong_letter_error = 0; /* Caso seja uma letra não esteja na palavra secreta */
 
     int i = 0; /* Contador genérico para ser usado em laços for */
 
@@ -163,7 +164,8 @@ int main(void) {
             if (is_not_letter_error) puts(ANSI_COLOR_YELLOW "O caractere inserido não é uma letra! Tente novamente." ANSI_COLOR_RESET);
             if (already_used_letter_error) puts(ANSI_COLOR_YELLOW "Essa letra já foi inserida! Tente novamente." ANSI_COLOR_RESET);
             if (more_than_one_char_error) puts(ANSI_COLOR_YELLOW "Insira apenas um caractere! Tente novamente." ANSI_COLOR_RESET);
-            
+            if (wrong_letter_error) printf(ANSI_COLOR_YELLOW "A letra %c não está na palavra!\n" ANSI_COLOR_RESET, input_letter);
+
             /* Se a palavra está completa ou as tentativas foram zeradas, sai do laço */
             if (noose.is_complete || noose.attempts < 1) break;
             
@@ -184,6 +186,7 @@ int main(void) {
                 /* Corrige os outros erros para não imprimir na tela múltiplos erros */
                 is_not_letter_error = 0;
                 already_used_letter_error = 0;
+                wrong_letter_error = 0;
                 continue;
             }
             else {
@@ -201,6 +204,7 @@ int main(void) {
                 /* Corrige os outros erros para não imprimir na tela múltiplos erros */
                 more_than_one_char_error = 0;
                 already_used_letter_error = 0;
+                wrong_letter_error = 0;
                 continue;
             }
             else {
@@ -215,6 +219,7 @@ int main(void) {
                 /* Corrige os outros erros para não imprimir na tela múltiplos erros */
                 more_than_one_char_error = 0;
                 is_not_letter_error = 0;
+                wrong_letter_error = 0;
                 continue;
             }
             else {
@@ -225,10 +230,14 @@ int main(void) {
             /* Anexa a letra inserida no final da string de letras já inseridas */
             append(noose.used_letters, input_letter);
 
-            /* Se a palavra secreta não contém a letra inserida, o usuário é informado e perde uma tentativa */
+            /* Se a palavra secreta não contém a letra inserida, o usuário perde uma tentativa e a flag de erro por letra errada se ativa*/
             if (strchr(noose.word, input_letter) == NULL) {
-                printf("A letra %c não está na palavra!\n", input_letter);
+                wrong_letter_error = 1;
                 --noose.attempts;
+            }
+            else {
+                /* Corrige o erro */
+                wrong_letter_error = 0;
             }
         }
 
@@ -288,8 +297,9 @@ int main(void) {
                 /* Reseta as variáveis da forca para valores vazios */
                 reset_noose(&noose, 6); /* Atribui 6 às tentativas */
 
-                /* Corrige o erro */
+                /* Corrige os erros */
                 not_valid_keep_playing_value = 0;
+                wrong_letter_error = 0;
                 break;
             }   
             else if (keep_playing == 'N') {
