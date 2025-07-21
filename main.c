@@ -17,11 +17,9 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 int main(void) {
+
     /* Estabelece o locale para português do Brasil */
     setlocale(LC_ALL, "ptb");
-
-    /* Limpa a tela de início */
-    system("clear");
 
     /* Declaração e inicialização da forca */
     Noose noose = {
@@ -62,12 +60,19 @@ int main(void) {
         exit(1);
     }
 
+    /* Define o número máximo de escolha do usuário (com base no número de linhas no arquivo palavras.txt) */
+    int max_chose_number = count_lines(words_file);
+
     /* Laço principal do jogo */
     while (keep_playing != 'N') {
         /* Pede para o usuário inserir um número de 1 a 100 para selecionar a palavra secreta */
         while (1) {
-            /* Limpa a tela */
-            system("clear");
+            /* Limpa a tela de início (com base no comando bash adequado ao sistema operacional) */
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
 
             /* Imprime o título do jogo */
             puts("----------------------------------------------------------------------------");
@@ -84,7 +89,7 @@ int main(void) {
             /* Imprime na tela uma mensagem de erro caso o usuário tenha inserido um valor inválido */
             if (not_valid_word_line_number) puts(ANSI_COLOR_YELLOW "Valor inserido inválido. Tente novamente!" ANSI_COLOR_RESET);
 
-            printf("Selecione um número de 1 a 100 para iniciar o jogo: ");
+            printf("Selecione um número de 1 a %d para iniciar o jogo: ", max_chose_number);
             
             /* Lê o número da linha */
             setbuf(stdin, NULL);
@@ -96,7 +101,7 @@ int main(void) {
                 strchr(fgets_buffer, ',') != NULL || /* O valor contém vírgula */
                 strchr(fgets_buffer, '.') != NULL || /* O valor contém ponto */
                 sscanf(fgets_buffer, "%d", &word_line_number) != 1|| /* Se ocorre erro na atribuição à variável */
-                (word_line_number < 1 || word_line_number > 100) /* Se a variável está no intervalo correto */
+                (word_line_number < 1 || word_line_number > max_chose_number) /* Se a variável está no intervalo correto */
             ) {
                 /* Registra o erro e repete o laço */
                 not_valid_word_line_number = 1;
@@ -126,8 +131,12 @@ int main(void) {
         }
         
         while (1) {
-            /* Limpa a tela a cada tentativa */
-            system("clear");
+            /* Limpa a tela a cada tentativa (com base no comando bash adequado ao sistema operacional) */
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
 
             update_showed_word(&noose); /* Atualiza a palavra a ser mostrada */
             noose.is_complete = check_word(&noose); /* Checa se a palavra foi totalmente descoberta */
@@ -279,8 +288,6 @@ int main(void) {
                 /* Reseta as variáveis da forca para valores vazios */
                 reset_noose(&noose, 6); /* Atribui 6 às tentativas */
 
-                /* Limpa a tela */
-                system("clear");
                 /* Corrige o erro */
                 not_valid_keep_playing_value = 0;
                 break;
